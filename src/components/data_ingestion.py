@@ -7,6 +7,7 @@ from src.exception import CustomException
 from src.logger import logging
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
+from src.components.model_training import ModelTrainingConfig, ModelTraining
 
 from sklearn.model_selection import train_test_split as tts
 
@@ -56,4 +57,9 @@ if __name__ == "__main__":
 
     # Using Data Transformation
     preprocessor = DataTransformation()
-    preprocessor.initiate_transformation(train_path, test_path)  # Returns train_arr, test_arr and preprocessor obj path where saved
+    train_arr, test_arr,_ = preprocessor.initiate_transformation(train_path, test_path)  # Returns train_arr, test_arr and preprocessor obj path where saved
+
+    model_trainer = ModelTraining()
+    model_trainer.initiate_model_training(train_data=train_arr, test_data=test_arr)
+
+
