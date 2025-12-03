@@ -60,6 +60,7 @@ if __name__ == "__main__":
     train_arr, test_arr,_ = preprocessor.initiate_transformation(train_path, test_path)  # Returns train_arr, test_arr and preprocessor obj path where saved
 
     model_trainer = ModelTraining()
-    model_trainer.initiate_model_training(train_data=train_arr, test_data=test_arr)
-
+    _, report = model_trainer.initiate_model_training(train_data=train_arr, test_data=test_arr)
+    
+    print(report)                                          # For checking best_params
 
