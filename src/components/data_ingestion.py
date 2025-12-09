@@ -29,7 +29,7 @@ class DataIngestion:
         try:
             df = pd.read_csv("notebook/data/StudentsPerformance.csv")
             logging.info("Read data as DataFrame")
-            df["total score"] = df["math score"] + df["reading score"] + df["writing score"]
+            
             os.makedirs(os.path.dirname(self.ingestion_inputs.train_path), exist_ok=True)
         
             logging.info("Feeding Raw DataFrame in raw_path")

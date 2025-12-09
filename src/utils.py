@@ -22,6 +22,14 @@ def save_object(file_path, obj):
     with open(file_path, "wb") as file_obj:
         dill.dump(obj, file_obj)            # Store at file_object not file_string(path)
 
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file:
+            return dill.load(file) 
+    
+    except Exception as e:
+        raise CustomException(e, sys)
+
 def evaluate_model(X_train_data, X_test_data, y_train_data, y_test_data):
     models = {
         "Linear": LinearRegression(),

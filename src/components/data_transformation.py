@@ -30,7 +30,7 @@ class DataTransformation:
         logging.info("Data Preprocessor object creation started")
 
         try:
-            numeric_columns = ["math score", "reading score", "writing score"]
+            numeric_columns = ["reading score", "writing score"]
             cat_columns = ["gender","race/ethnicity","parental level of education","lunch",
                            "test preparation course"]
             
@@ -73,7 +73,7 @@ class DataTransformation:
             preprocessor = self.get_transformer()
             logging.info("Obtained Preprocessor object")
 
-            target = "total score"
+            target = "math score"
             X_train_df = train_df.drop([target], axis=1)
             y_train_df = train_df[target]
 
